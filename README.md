@@ -50,7 +50,7 @@ A desktop library management application built with **C++**, **Qt Widgets**, and
 ```bash
    git clone https://github.com/solimanelkhoulii/Library-System.git
 ```
-2. Open `Deliverable1.pro` in Qt Creator
+2. Open `HinLIBS.pro` in Qt Creator
 3. Select your build kit and press `Ctrl+R` to build and run
 
 The app launches immediately using the pre-populated `hinlibs.db` database — no setup required.
