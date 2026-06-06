@@ -1,91 +1,89 @@
-# HinLIBS - Library Information System 
+# HinLIBS — Library Management System
 
-## Overview
+A desktop library management application built with **C++**, **Qt Widgets**, and **SQLite**. HinLIBS delivers a clean, role-based interface where patrons can manage their borrowing activity and librarians can oversee the full catalogue and user base — all backed by persistent local storage.
 
-The core focus of this deliverable is the implementation of **persistent data storage using SQLite** and the addition of **Librarian-specific functionality**. The system is a C++ application with a Graphical User Interface (GUI) built using the **Qt framework**, designed to run on the course's Linux Ubuntu VM environment.
+---
 
-## Team Members
+## 🚀 Key Features
 
-| Name | Student Number |
-| :--- | :--- |
-| Soliman Elkhouli | 101244211 |
-| Jules Carson | 101019276 |
-| Sean Xie | 101272248 |
-| Joshua Wang | 101307312 |
+### 👤 Patron Portal
+- **Smart Browsing** — Search and filter the library catalogue in real-time
+- **Loan Management** — Borrow up to 3 items with automated due-date tracking
+- **Hold System** — Place FIFO-based holds on checked-out items
+- **Personal Dashboard** — View active loans, holds, and account status at a glance
 
-## Key Features
+### 🔑 Librarian & Admin Tools
+- **Catalogue Control** — Add, update, or remove items (Books, Magazines, Movies, Games)
+- **Patron Oversight** — Search patrons by name and process returns on their behalf
+- **System Maintenance** — Integrated system restart and data persistence verification
 
-### 1. Data Persistence 
-All application data (Catalogue, Users, Loans, Holds) is now managed by an **SQLite database**. The system ensures data integrity by loading all data from the database on startup and persisting changes throughout the application's runtime.
+---
 
-### 2. Librarian Functionality 
-The Librarian role provides administrative tools for managing the library's resources and patron accounts.
-*   **Add/Remove Item:** Manage the library catalogue by adding or removing items.
-*   **Process Returns:** Return items on behalf of any patron, including searching for a patron and viewing their active loans.
+## 🛠 Tech Stack
 
-### 3. Patron Functionality 
-The core patron features remain fully functional and are now backed by the SQLite database.
-*   **Catalogue:** Search and browse available items.
-*   **Borrowing:** Borrow items (maximum of 3 active loans).
-*   **Holds:** Place and cancel holds on checked-out items (FIFO order).
-*   **Account:** View personal account details, including active loans and holds.
+| Component | Technology |
+|---|---|
+| Language | C++17 |
+| Framework | Qt 5 (Widgets, SQL, Core) |
+| Database | SQLite 3 |
+| Build System | QMake |
 
-## Technology Stack
+---
 
-| Component | Technology | Details |
-| :--- | :--- | :--- |
-| **Language** | C++ | Core application logic. |
-| **GUI** | Qt Widgets | Graphical User Interface framework. |
-| **Build System** | QMake | Project compilation and configuration (`Deliverable1.pro`). |
-| **Database** | SQLite | Persistent data storage via the Qt SQL module. |
+## 📂 Project Architecture
 
-## Setup and Build Instructions
+- **DataStore** — Centralized manager for in-memory caching and database synchronization
+- **DatabaseManager** — Handles low-level SQLite connections and schema initialization
+- **Domain Models** — Specialized classes for `Patron`, `Librarian`, and `CatalogueItem`
 
-The project is configured as a fully **turnkey submission** for the course VM environment.
+---
 
-1.  **Extract the Archive:**
-    ```bash
-    unzip team_49_D2.zip
-    cd d2v22
-    ```
-2.  **Open in Qt Creator:**
-    *   Launch Qt Creator.
-    *   Go to `File` -> `Open File or Project...`
-    *   Select the project file: `Deliverable1.pro`.
-3.  **Build and Run:**
-    *   Select the appropriate build kit (e.g., Desktop Qt 5.x.x GCC 64bit).
-    *   Click the **Build** button (`Ctrl+B`) and then the **Run** button (`Ctrl+R`).
+## ⚙️ Getting Started
 
-The application will compile and launch immediately without requiring any manual configuration, library installation, or path changes.
+### Prerequisites
+- Qt Creator (Qt 5.15+ recommended)
+- GCC/G++ Compiler
 
-## Default User Accounts and Database
+### Installation
 
-The application uses a pre-populated SQLite database (`hinlibs.db`) located in the project root.
-
-| User Type | Username | Role | Login Method |
-| :--- | :--- | :--- | :--- |
-| **Patron** | `Patron1` to `Patron5` | Standard library user. | Enter username, click **Patron Login**. |
-| **Librarian** | `Librarian` | Catalogue and loan management. | Enter username, click **Librarian Login**. |
-| **Administrator** | `Administrator` | System-level access. | Enter username, click **Admin Login**. |
-
-**Note:** No password is required for login; simply enter the username.
-
-### Database File Location
-
-The pre-populated database file is:
+1. Clone the repository:
+```bash
+   git clone https://github.com/solimanelkhoulii/Library-System.git
 ```
-/home/ubuntu/d2v22_project/d2v22/hinlibs.db
+2. Open `Deliverable1.pro` in Qt Creator
+3. Select your build kit and press `Ctrl+R` to build and run
+
+The app launches immediately using the pre-populated `hinlibs.db` database — no setup required.
+
+---
+
+## 🔐 Default Accounts
+
+| Username | Role |
+|---|---|
+| `Patron1` – `Patron5` | Patron |
+| `Librarian` | Librarian |
+| `Admin` | System Administrator |
+
+No password required — just enter the username.
+
+---
+
+## 🐛 Bug Fix
+
+A memory corruption crash (`malloc_consolidate(): unaligned fastbin chunk detected`) occurring after catalogue modifications was identified and fixed.
+
+**Root cause:** `DataStore::clear()` called `qDeleteAll(m_items)` without following up with `m_items.clear()`, leaving dangling pointers in the map. On the next repopulation, `qDeleteAll` attempted to free already-freed memory.
+
+**Fix:**
+```cpp
+void DataStore::clear() {
+    qDeleteAll(m_items);
+    m_items.clear(); // prevent double-free on re-population
+}
 ```
 
-## Project Structure
+---
 
-| File/Directory | Description |
-| :--- | :--- |
-| `Deliverable1.pro` | QMake project file. |
-| `main.cpp` | Application entry point. |
-| `mainwindow.cpp` | Main window logic, handles page navigation and database connection. |
-| `databasemanager.cpp` | Handles all database operations. |
-| `sql_create_db.sql` | SQL script for table creation. |
-| `sql_populate_db.sql` | SQL script for populating default data (20 items, 7 users). |
-| `hinlibs.db` | The pre-populated SQLite database file. |
-| `*.cpp`/`.h`/`.ui` | Source files for UI pages and domain objects. |
+## 👤 Author
+**Soliman Elkhouli**
