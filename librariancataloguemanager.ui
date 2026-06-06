@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LibrarianCatalogueManager</class>
+ <widget class="QWidget" name="LibrarianCatalogueManager">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Catalogue Management</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+    background-color: #f5f5f5;
+}
+
+QLabel#titleLabel {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+QTableWidget {
+    background-color: white;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    gridline-color: #ecf0f1;
+}
+
+QHeaderView::section {
+    background-color: #34495e;
+    color: white;
+    padding: 8px;
+    border: none;
+    font-weight: bold;
+}
+
+QPushButton {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #2980b9;
+}
+
+QPushButton:pressed {
+    background-color: #21618c;
+}
+
+QPushButton#addButton {
+    background-color: #27ae60;
+}
+
+QPushButton#addButton:hover {
+    background-color: #229954;
+}
+
+QPushButton#removeButton {
+    background-color: #e74c3c;
+}
+
+QPushButton#removeButton:hover {
+    background-color: #c0392b;
+}
+
+QPushButton#backButton {
+    background-color: #95a5a6;
+}
+
+QPushButton#backButton:hover {
+    background-color: #7f8c8d;
+}</string>
+  </property>
+  <widget class="QLabel" name="titleLabel">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>760</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Catalogue Management</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="catalogueTable">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>60</y>
+     <width>760</width>
+     <height>480</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="addButton">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>550</y>
+     <width>150</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Add Item</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="removeButton">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>550</y>
+     <width>150</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Remove Selected</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="backButton">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>550</y>
+     <width>100</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>← Back</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+<!--  <connection>
+   <sender>addButton</sender>
+   <signal>clicked()</signal>
+   <receiver>LibrarianCatalogueManager</receiver>
+   <slot>on_addButton_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>94</x>
+     <y>570</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>-->
+  <!--<connection>
+   <sender>removeButton</sender>
+   <signal>clicked()</signal>
+   <receiver>LibrarianCatalogueManager</receiver>
+   <slot>on_removeButton_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>254</x>
+     <y>570</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>-->
+ </connections>
+</ui>

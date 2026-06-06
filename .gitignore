@@ -1,0 +1,48 @@
+# Qt build artifacts
+*.o
+*.a
+*.so
+*.out
+Makefile
+.qmake.stash
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+*.user
+*.user.*
+*.pro.user
+*.pro.user.*
+
+# Build directories
+build/
+build-*/
+release/
+debug/
+.build/
+
+# Compiled binary
+Deliverable1
+Deliverable2
+hinlibs
+*.exe
+
+# Temp / editor files
+*.swp
+*.swo
+*~
+*.udaJTg
+*.bak
+*.orig
+.DS_Store
+Thumbs.db
+
+# Qt Creator
+*.creator
+*.creator.user
+*.config
+*.files
+*.includes
+CMakeLists.txt.user
+
+# Do NOT ignore the database — it contains the required seed data
+# !hinlibs.db

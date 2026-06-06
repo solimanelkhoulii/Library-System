@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LibrarianPatronManager</class>
+ <widget class="QWidget" name="LibrarianPatronManager">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Patron Management</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+    background-color: #f5f5f5;
+}
+
+QLabel#titleLabel {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+QLabel#patronDetailsLabel {
+    font-size: 16px;
+    font-weight: bold;
+    color: #34495e;
+}
+
+QTableWidget {
+    background-color: white;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    gridline-color: #ecf0f1;
+}
+
+QHeaderView::section {
+    background-color: #34495e;
+    color: white;
+    padding: 8px;
+    border: none;
+    font-weight: bold;
+}
+
+QPushButton {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #2980b9;
+}
+
+QPushButton:pressed {
+    background-color: #21618c;
+}
+
+QPushButton#returnBookButton {
+    background-color: #27ae60;
+}
+
+QPushButton#returnBookButton:hover {
+    background-color: #229954;
+}
+
+QPushButton#cancelHoldButton {
+    background-color: #e67e22;
+}
+
+QPushButton#cancelHoldButton:hover {
+    background-color: #d35400;
+}
+
+QPushButton#backButton {
+    background-color: #95a5a6;
+}
+
+QPushButton#backButton:hover {
+    background-color: #7f8c8d;
+}</string>
+  </property>
+  <widget class="QLabel" name="titleLabel">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>760</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Patron Management</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="patronListTable">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>60</y>
+     <width>150</width>
+     <height>480</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="patronDetailsLabel">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>60</y>
+     <width>590</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Select a patron to view their loans and holds.</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="loansTable">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>90</y>
+     <width>590</width>
+     <height>200</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="holdsTable">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>340</y>
+     <width>590</width>
+     <height>200</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="loansLabel">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>70</y>
+     <width>100</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Active Loans:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="holdsLabel">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>320</y>
+     <width>100</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Active Holds:</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="returnBookButton">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>550</y>
+     <width>180</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Return Selected Book</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cancelHoldButton">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>550</y>
+     <width>180</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cancel Selected Hold</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="backButton">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>550</y>
+     <width>100</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>← Back</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>patronListTable</sender>
+   <signal>currentCellChanged(int,int,int,int)</signal>
+   <receiver>LibrarianPatronManager</receiver>
+   <slot>on_patronListTable_currentCellChanged(int,int,int,int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>94</x>
+     <y>300</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <!-- <connection>
+   <sender>returnBookButton</sender>
+   <signal>clicked()</signal>
+   <receiver>LibrarianPatronManager</receiver>
+   <slot>on_returnBookButton_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>264</x>
+     <y>570</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection> -->
+  <!-- <connection>
+   <sender>cancelHoldButton</sender>
+   <signal>clicked()</signal>
+   <receiver>LibrarianPatronManager</receiver>
+   <slot>on_cancelHoldButton_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>424</x>
+     <y>570</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection> -->
+ </connections>
+</ui>

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>BrowseCatalogue</class>
+ <widget class="QWidget" name="BrowseCatalogue">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Browse Catalogue</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+    background-color: #f5f5f5;
+}
+
+QLabel#label {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+QTableWidget {
+    background-color: white;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    gridline-color: #ecf0f1;
+}
+
+QTableWidget::item {
+    padding: 5px;
+}
+
+QTableWidget::item:selected {
+    background-color: #3498db;
+    color: white;
+}
+
+QHeaderView::section {
+    background-color: #34495e;
+    color: white;
+    padding: 8px;
+    border: none;
+    font-weight: bold;
+}
+
+QPushButton {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #2980b9;
+}
+
+QPushButton:pressed {
+    background-color: #21618c;
+}
+
+QPushButton#borrowButton {
+    background-color: #27ae60;
+}
+
+QPushButton#borrowButton:hover {
+    background-color: #229954;
+}
+
+QPushButton#returnButton {
+    background-color: #f39c12;
+}
+
+QPushButton#returnButton:hover {
+    background-color: #e67e22;
+}
+
+QPushButton#holdButton {
+    background-color: #9b59b6;
+}
+
+QPushButton#holdButton:hover {
+    background-color: #8e44ad;
+}
+
+QPushButton#detailsButton {
+    background-color: #16a085;
+}
+
+QPushButton#detailsButton:hover {
+    background-color: #138d75;
+}
+
+QPushButton#backButton {
+    background-color: #95a5a6;
+}
+
+QPushButton#backButton:hover {
+    background-color: #7f8c8d;
+}</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>760</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Browse Catalogue</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="catalogueTable">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>65</y>
+     <width>760</width>
+     <height>450</height>
+    </rect>
+   </property>
+   <property name="selectionMode">
+    <enum>QAbstractItemView::SingleSelection</enum>
+   </property>
+   <property name="selectionBehavior">
+    <enum>QAbstractItemView::SelectRows</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="borrowButton">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>530</y>
+     <width>120</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Borrow</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="returnButton">
+   <property name="geometry">
+    <rect>
+     <x>155</x>
+     <y>530</y>
+     <width>120</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Return</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="holdButton">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>530</y>
+     <width>120</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Place Hold</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="detailsButton">
+   <property name="geometry">
+    <rect>
+     <x>425</x>
+     <y>530</y>
+     <width>120</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>View Details</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="backButton">
+   <property name="geometry">
+    <rect>
+     <x>660</x>
+     <y>530</y>
+     <width>120</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>← Back</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
